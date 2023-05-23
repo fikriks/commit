@@ -4,13 +4,13 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 7,8,9,10,11 * * *'
+    - cron: '1 * * * *'
 jobs:
   auto_commit:
     runs-on: ubuntu-latest
     steps:
       - name: DEBUG 
-        run: echo "::debug::Ref = ${{ github.head_ref }}"
+        run: echo "::debug::Ref = ${{github.ref}}"
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
