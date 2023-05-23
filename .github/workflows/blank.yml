@@ -22,8 +22,8 @@ jobs:
           echo $d > LAST_UPDATED
       - name: Commit changes
         run: |
-          git config --local user.email "{YOUR_EMAIL}"
-          git config --local user.name "{YOUR_USERNAME}"
+          git config --local user.email "fikriks130@gmail.com"
+          git config --local user.name "fikriks"
           git add -A
           arr[0]="chore(bot): 😂 auto commit"
           arr[1]="chore(bot): 😱 auto commit"
