@@ -4,12 +4,12 @@ on:
     branches:
       - main
   schedule:
-    - cron: '1 * * * *'
+    - cron: "1 7,10,13,16 * * *"
 jobs:
   auto_commit:
     runs-on: ubuntu-latest
     steps:
-      - name: DEBUG 
+      - name: DEBUG
         run: echo "::debug::Ref = ${{github.ref}}"
       - uses: actions/checkout@v3
         with:
@@ -35,13 +35,13 @@ jobs:
           arr[7]="chore(bot): 🤖 auto commit"
           arr[8]="chore(bot): 🟩 auto commit"
           arr[9]="chore(bot): 👻 auto commit"
-          
+
           rand=$[$RANDOM % ${#arr[@]}]
-          
+
           git commit -m "${arr[$rand]}"
       - name: Push Back
         uses: ad-m/github-push-action@master
         with:
           force: true
-          directory: '.'
+          directory: "."
           github_token: ${{ secrets.GITHUB_TOKEN }}
